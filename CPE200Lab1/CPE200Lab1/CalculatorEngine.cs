@@ -8,19 +8,21 @@ namespace CPE200Lab1
 {
     class CalculatorEngine
     {
-        public string calculate(string operate, string firstOperand, string secondOperand, int maxOutputSize = 8)
+      
+        public string calculate(int check,string operate, string firstOperand, string secondOperand, int maxOutputSize = 8)
         {
-            switch(operate)
+            switch (operate)
             {
                 case "+":
                     return (Convert.ToDouble(firstOperand) + Convert.ToDouble(secondOperand)).ToString();
                 case "-":
                     return (Convert.ToDouble(firstOperand) - Convert.ToDouble(secondOperand)).ToString();
                 case "X":
+
                     return (Convert.ToDouble(firstOperand) * Convert.ToDouble(secondOperand)).ToString();
                 case "÷":
                     // Not allow devide be zero
-                    if(secondOperand != "0")
+                    if (secondOperand != "0")
                     {
                         double result;
                         string[] parts;
@@ -30,7 +32,7 @@ namespace CPE200Lab1
                         // split between integer part and fractional part
                         parts = result.ToString().Split('.');
                         // if integer part length is already break max output, return error
-                        if(parts[0].Length > maxOutputSize)
+                        if (parts[0].Length > maxOutputSize)
                         {
                             return "E";
                         }
@@ -41,8 +43,16 @@ namespace CPE200Lab1
                     }
                     break;
                 case "%":
-                    //your code here
-                    break;
+                    secondOperand = (Convert.ToDouble(firstOperand) * Convert.ToDouble(secondOperand) / 100).ToString();
+                    if(check==0)
+                        return calculate(0,"+", firstOperand, secondOperand, maxOutputSize = 8); 
+                    else if (check == 1)
+                        return calculate(1, "-", firstOperand, secondOperand, maxOutputSize = 8);
+                    else if(check == 2)
+                        return calculate(2, "X", firstOperand, secondOperand, maxOutputSize = 8);
+                    else if(check == 3)
+                        return calculate(3, "÷", firstOperand, secondOperand, maxOutputSize = 8);
+                      break;
             }
             return "E";
         }
