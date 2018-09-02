@@ -78,15 +78,16 @@ namespace CPE200Lab1
                     break;
                 case "%":
                     secondOperand = (Convert.ToDouble(firstOperand) * Convert.ToDouble(secondOperand) / 100).ToString();
-                    if(check==0)
-                        return calculate(0,"+", firstOperand, secondOperand, maxOutputSize = 8); 
+                    if (check == 0)
+                        return calculate(0, "+", firstOperand, secondOperand, maxOutputSize = 8);
                     else if (check == 1)
                         return calculate(1, "-", firstOperand, secondOperand, maxOutputSize = 8);
-                    else if(check == 2)
+                    else if (check == 2)
                         return calculate(2, "X", firstOperand, secondOperand, maxOutputSize = 8);
-                    else if(check == 3)
+                    else if (check == 3)
                         return calculate(3, "÷", firstOperand, secondOperand, maxOutputSize = 8);
-                      break;
+                    else
+                        return "0";
             }
             return "E";
         }
