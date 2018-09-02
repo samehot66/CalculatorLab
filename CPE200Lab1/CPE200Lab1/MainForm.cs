@@ -140,16 +140,21 @@ namespace CPE200Lab1
                     firstOperand = lblDisplay.Text;
                     isAfterOperater = true;
                     break;
+                case "1/X":
+                    firstOperand = lblDisplay.Text;
+                    isAfterOperater = true;
+                    break;
+                case "√":
+                    firstOperand = lblDisplay.Text;
+                    isAfterOperater = true;
+                    break;
                 case "%":
                     secondOperand = Convert.ToDouble(firstOperand).ToString();
                     isAfterOperater = true;
                     break;
-                 
             }
             isAllowBack = false;
         }
-
-       
         
         private void btnEqual_Click(object sender, EventArgs e)
         {
@@ -169,7 +174,7 @@ namespace CPE200Lab1
             }
             isAfterEqual = true;
         }
-
+       
         private void btnDot_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -250,6 +255,5 @@ namespace CPE200Lab1
             }
         }
 
-      
     }
 }
