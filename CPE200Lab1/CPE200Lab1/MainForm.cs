@@ -28,7 +28,7 @@ namespace CPE200Lab1
             isAfterEqual = false;
         }
 
-        private string calculate(string operate, string firstOperand, string secondOperand, int maxOutputSize = 8)
+        /*private string calculate(string operate, string firstOperand, string secondOperand, int maxOutputSize = 8)
         {
             switch(operate)
             {
@@ -65,12 +65,13 @@ namespace CPE200Lab1
                     break;
             }
             return "E";
-        }
+        }*/
 
         public MainForm()
         {
+          //  ClassType instanceName = new ClassType();
             InitializeComponent();
-
+            engine = new CalculatorEngine();
             resetAll();
         }
 
@@ -129,6 +130,7 @@ namespace CPE200Lab1
             isAllowBack = false;
         }
 
+        CalculatorEngine engine;
         private void btnEqual_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -136,7 +138,7 @@ namespace CPE200Lab1
                 return;
             }
             string secondOperand = lblDisplay.Text;
-            string result = calculate(operate, firstOperand, secondOperand);
+            string result = engine.calculate(operate, firstOperand, secondOperand);
             if (result is "E" || result.Length > 8)
             {
                 lblDisplay.Text = "Error";
@@ -226,6 +228,11 @@ namespace CPE200Lab1
                     lblDisplay.Text = "0";
                 }
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
