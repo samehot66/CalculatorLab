@@ -29,6 +29,7 @@ namespace CPE200Lab1
             isAfterOperater = false;
             isAfterEqual = false;
             check = -1;
+           
         }
 
         /*private string calculate(string operate, string firstOperand, string secondOperand, int maxOutputSize = 8)
@@ -155,7 +156,7 @@ namespace CPE200Lab1
             }
             isAllowBack = false;
         }
-        
+        string result;
         private void btnEqual_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -163,7 +164,7 @@ namespace CPE200Lab1
                 return;
             }
             string secondOperand = lblDisplay.Text;
-            string result = engine.calculate(check,operate, firstOperand, secondOperand);
+             result = engine.calculate(check,operate, firstOperand, secondOperand);
             if (result is "E" || result.Length > 8)
             {
                 lblDisplay.Text = "Error";
@@ -254,6 +255,27 @@ namespace CPE200Lab1
                 }
             }
         }
+        double M;
+        private void btnMplus_Click(object sender, EventArgs e)
+        {
+            M += Convert.ToDouble(result);
+            lblDisplay.Text = "0";
+        }
 
+        private void btnMR_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = M.ToString();
+        }
+
+        private void btnMminus_Click(object sender, EventArgs e)
+        {
+            M -= Convert.ToDouble(result);
+            lblDisplay.Text = "0";
+        }
+
+        private void btnMC_Click(object sender, EventArgs e)
+        {
+            M = 0;
+        }
     }
 }
