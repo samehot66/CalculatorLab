@@ -340,6 +340,7 @@
             this.btn12.TabIndex = 23;
             this.btn12.Text = "MS";
             this.btn12.UseVisualStyleBackColor = true;
+            this.btn12.Click += new System.EventHandler(this.btnMS_Click);
             // 
             // btn13
             // 

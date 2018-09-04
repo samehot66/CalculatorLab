@@ -277,5 +277,11 @@ namespace CPE200Lab1
         {
             M = 0;
         }
+
+        private void btnMS_Click(object sender, EventArgs e)
+        {
+            M = Convert.ToDouble(lblDisplay.Text);
+           lblDisplay.Text = "0";
+        }
     }
 }
