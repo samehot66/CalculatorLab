@@ -49,18 +49,19 @@ namespace CPE200Lab1
                         string[] parts;
                         int remainLength;
 
-                        result = (Convert.ToDouble(firstOperand) * Convert.ToDouble(secondOperand) / 100);
+                        result = (Convert.ToDouble(firstOperand) * Convert.ToDouble(secondOperand) / 100); //Finding the percent value
                         parts = result.ToString().Split('.');
                         if (parts[0].Length > maxOutputSize)
                         {
                             return "E";
                         }
                         remainLength = maxOutputSize - parts[0].Length - 1;
-                        secondOperand = result.ToString("N" + remainLength);
+                        secondOperand = result.ToString("N" + remainLength); //secondOperand store new value after finding the percent value
                     }
                     else
                         return "0";
                     
+                    //Check case and recursive then return value
                     if (check == 0)
                         return calculate(0, "+", firstOperand, secondOperand, maxOutputSize = 8);
                     else if (check == 1)

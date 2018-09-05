@@ -17,9 +17,9 @@ namespace CPE200Lab1
         private bool isAfterOperater;
         private bool isAfterEqual;
         private string firstOperand;
-        private string secondOperand;
+        private string secondOperand; //Declare for store second number
         private string operate;
-        CalculatorEngine engine;
+        CalculatorEngine engine; //Call CaculatorEngine class
         int check;
         private void resetAll()
         {
@@ -28,15 +28,13 @@ namespace CPE200Lab1
             hasDot = false;
             isAfterOperater = false;
             isAfterEqual = false;
-            check = -1;
-           
+            check = -1; //Default value
         }
 
         public MainForm()
         {
-          //  ClassType instanceName = new ClassType();
             InitializeComponent();
-            engine = new CalculatorEngine();
+            engine = new CalculatorEngine(); //Make new classtype CalculatorEngine name engine
             resetAll();
         }
 
@@ -79,11 +77,10 @@ namespace CPE200Lab1
                 return;
             }
             operate = ((Button)sender).Text;
-
             switch (operate)
             {
                 case "+":
-                    check = 0;
+                    check = 0; //Store the check case then pass to calculator class in btnEqual click
                     firstOperand = lblDisplay.Text;
                     isAfterOperater = true;
                     break;
@@ -111,13 +108,14 @@ namespace CPE200Lab1
                     isAfterOperater = true;
                     break;
                 case "%":
-                    secondOperand = Convert.ToDouble(firstOperand).ToString();
+                    secondOperand = Convert.ToDouble(firstOperand).ToString(); //Store the second then pass to calculator class in btnEqual click
                     isAfterOperater = true;
                     break;
             }
             isAllowBack = false;
         }
-        string result;
+
+        string result; //Store the result after calculate
         private void btnEqual_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -125,7 +123,7 @@ namespace CPE200Lab1
                 return;
             }
             string secondOperand = lblDisplay.Text;
-             result = engine.calculate(check,operate, firstOperand, secondOperand);
+            result = engine.calculate(check,operate, firstOperand, secondOperand); //pass value to calculate
             if (result is "E" || result.Length > 8)
             {
                 lblDisplay.Text = "Error";
@@ -216,7 +214,8 @@ namespace CPE200Lab1
                 }
             }
         }
-        double M;
+
+        double M; //Memory
         private void btnMplus_Click(object sender, EventArgs e)
         {
             M += Convert.ToDouble(result);
@@ -252,15 +251,15 @@ namespace CPE200Lab1
                 double result;
                 string[] parts;
                 int remainLength;
-
-                result = Math.Sqrt(Convert.ToDouble(lblDisplay.Text));
+           
+                result = Math.Sqrt(Convert.ToDouble(lblDisplay.Text)); //Square root calculate
                 parts = result.ToString().Split('.');
                 if (parts[0].Length > 8)
                 {
                      lblDisplay.Text = "E";
                 }
                 remainLength = 8- parts[0].Length - 1;
-                lblDisplay.Text= result.ToString("N" + remainLength);
+                lblDisplay.Text= result.ToString("N" + remainLength); //Show result after calculate
             }
         }
 
@@ -272,14 +271,14 @@ namespace CPE200Lab1
                 string[] parts;
                 int remainLength;
 
-                result = (1 / Convert.ToDouble(lblDisplay.Text));
+                result = (1 / Convert.ToDouble(lblDisplay.Text)); //1/X calculate
                 parts = result.ToString().Split('.');
                 if (parts[0].Length > 8)
                 {
                     lblDisplay.Text = "E";
                 }
                 remainLength = 8 - parts[0].Length - 1;
-                lblDisplay.Text = result.ToString("N" + remainLength);
+                lblDisplay.Text = result.ToString("N" + remainLength); //Show result after calculate
             }
         }
     }
