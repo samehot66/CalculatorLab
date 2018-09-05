@@ -162,10 +162,6 @@ namespace CPE200Lab1
             {
                 return;
             }
-            if (isAfterEqual)
-            {
-                resetAll();
-            }
             // already contain negative sign
             if (lblDisplay.Text.Length is 8)
             {
