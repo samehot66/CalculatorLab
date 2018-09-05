@@ -42,7 +42,7 @@ namespace CPE200Lab1
                         return result.ToString("N" + remainLength);
                     }
                     break;
-                case "1/X":
+               /* case "1/X":
                     if (firstOperand != "0")
                     {
                         double result;
@@ -58,8 +58,8 @@ namespace CPE200Lab1
                         remainLength = maxOutputSize - parts[0].Length - 1;
                         return result.ToString("N" + remainLength);
                     }
-                    break;
-                case "√":
+                    break;*/
+              /*  case "√":
                     if (firstOperand != "0")
                     {
                         double result;
@@ -75,7 +75,7 @@ namespace CPE200Lab1
                         remainLength = maxOutputSize - parts[0].Length - 1;
                         return result.ToString("N" + remainLength);
                     }
-                    break;
+                    break;*/
                 case "%":
                     if (firstOperand != "0")
                     {

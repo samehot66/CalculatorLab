@@ -283,5 +283,45 @@ namespace CPE200Lab1
             M = Convert.ToDouble(lblDisplay.Text);
            lblDisplay.Text = "0";
         }
+
+        private void btnSqrt_Click(object sender, EventArgs e)
+        {
+           
+                    if (firstOperand != "0")
+            {
+                double result;
+                string[] parts;
+                int remainLength;
+
+                result = Math.Sqrt(Convert.ToDouble(lblDisplay.Text));
+                parts = result.ToString().Split('.');
+                if (parts[0].Length > 8)
+                {
+                     lblDisplay.Text = "E";
+                }
+                remainLength = 8- parts[0].Length - 1;
+                lblDisplay.Text= result.ToString("N" + remainLength);
+            }
+            
+        }
+
+        private void btnOnedivideX_Click(object sender, EventArgs e)
+        {
+            if (firstOperand != "0")
+            {
+                double result;
+                string[] parts;
+                int remainLength;
+
+                result = (1 / Convert.ToDouble(lblDisplay.Text));
+                parts = result.ToString().Split('.');
+                if (parts[0].Length > 8)
+                {
+                    lblDisplay.Text = "E";
+                }
+                remainLength = 8 - parts[0].Length - 1;
+                lblDisplay.Text = result.ToString("N" + remainLength);
+            }
+        }
     }
 }
