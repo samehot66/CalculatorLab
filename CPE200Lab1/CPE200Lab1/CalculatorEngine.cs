@@ -70,8 +70,8 @@ namespace CPE200Lab1
                         return calculate(2, "X", firstOperand, secondOperand, maxOutputSize = 8);
                     else if (check == 3)
                         return calculate(3, "÷", firstOperand, secondOperand, maxOutputSize = 8);
-                    /*  else
-                          return "0"; */
+                    else
+                          return "0"; 
                     break;
                    
             }
