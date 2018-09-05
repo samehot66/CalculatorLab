@@ -42,40 +42,6 @@ namespace CPE200Lab1
                         return result.ToString("N" + remainLength);
                     }
                     break;
-               /* case "1/X":
-                    if (firstOperand != "0")
-                    {
-                        double result;
-                        string[] parts;
-                        int remainLength;
-
-                        result = (1 / Convert.ToDouble(firstOperand));
-                        parts = result.ToString().Split('.');
-                        if (parts[0].Length > maxOutputSize)
-                        {
-                            return "E";
-                        }
-                        remainLength = maxOutputSize - parts[0].Length - 1;
-                        return result.ToString("N" + remainLength);
-                    }
-                    break;*/
-              /*  case "√":
-                    if (firstOperand != "0")
-                    {
-                        double result;
-                        string[] parts;
-                        int remainLength;
-
-                        result = Math.Sqrt((Convert.ToDouble(firstOperand)));
-                        parts = result.ToString().Split('.');
-                        if (parts[0].Length > maxOutputSize)
-                        {
-                            return "E";
-                        }
-                        remainLength = maxOutputSize - parts[0].Length - 1;
-                        return result.ToString("N" + remainLength);
-                    }
-                    break;*/
                 case "%":
                     if (firstOperand != "0")
                     {
