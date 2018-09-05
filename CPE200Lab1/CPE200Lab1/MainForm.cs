@@ -211,10 +211,10 @@ namespace CPE200Lab1
             }
         }
 
-        double M; //Memory
+        double M; 
         private void btnMplus_Click(object sender, EventArgs e)
         {
-            M += Convert.ToDouble(result);
+            M += Convert.ToDouble(lblDisplay.Text);
             lblDisplay.Text = "0";
         }
 
@@ -225,7 +225,7 @@ namespace CPE200Lab1
 
         private void btnMminus_Click(object sender, EventArgs e)
         {
-            M -= Convert.ToDouble(result);
+            M -= Convert.ToDouble(lblDisplay.Text);
             lblDisplay.Text = "0";
         }
 
