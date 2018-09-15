@@ -80,7 +80,16 @@ namespace CPE200Lab1
                         }
                         else 
                         {
-                            if (isOperator(s))
+                            if(s=="%")
+                            {
+                                secondOp = rpnStack.Pop().ToString();
+                                firstOp = rpnStack.Pop().ToString();
+                                secondOp = ((Convert.ToDouble(firstOp) *Convert.ToDouble(secondOp)) / 100).ToString();
+                                rpnStack.Push(firstOp);
+                                rpnStack.Push(secondOp);
+
+                            }
+                            if (isOperator(s)&&s!="%")
                             {
                                 secondOp = rpnStack.Pop().ToString();
                                 firstOp = rpnStack.Pop().ToString();
