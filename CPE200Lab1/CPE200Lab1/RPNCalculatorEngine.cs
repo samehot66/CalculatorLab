@@ -17,10 +17,23 @@ namespace CPE200Lab1
 
             string firstOp, secondOp;
             string[] strArr = str.Split(' ');
+            int checkNum = 0;
+            int checkOp = 0;
             Stack rpnStack = new Stack();
+
             if (strArr.Length < 3)
             {
                 return "E";
+            }
+            else if (isNumber(strArr[0]) && strArr[1] == "√")
+            {
+
+                return unaryCalculate("√", strArr[0]);
+            }
+            else if (isNumber(strArr[0]) && strArr[1] == "1/x")
+            {
+
+                return unaryCalculate("1/x", strArr[0]);
             }
             else if (isOperator(strArr[1]) || isOperator(strArr[0]))
 
@@ -29,36 +42,54 @@ namespace CPE200Lab1
             }
             else
             {
-
-                foreach (string s in strArr)
+                int i;
+                for (i = 0; i < strArr.Length; i++)
                 {
-
-                    if (isNumber(s))
+                    if (isNumber(strArr[i]))
                     {
-                        rpnStack.Push(s);
+                        checkNum++;
                     }
-                    else if (rpnStack.Count > 1)
+                    else
                     {
-                        if (isOperator(s))
+                        break;
+                    }
+                }
+                for (int x = i; i < strArr.Length; i++)
+                {
+                    if (isOperator(strArr[i]))
+                    {
+                        checkOp++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                if (checkOp == checkNum|| checkNum< checkOp)
+                {
+                    return "E";
+                }
+                else
+                {
+                    foreach (string s in strArr)
+                    {
+
+                        if (isNumber(s))
                         {
-                            secondOp = rpnStack.Pop().ToString();
-                            firstOp = rpnStack.Pop().ToString();
-                            if (firstOp == null || secondOp == null)
+                            rpnStack.Push(s);
+                        }
+                        else 
+                        {
+                            if (isOperator(s))
                             {
-                                return "E";
-                            }
-                            else
-                            {
+                                secondOp = rpnStack.Pop().ToString();
+                                firstOp = rpnStack.Pop().ToString();
                                 rpnStack.Push(calculate(s, firstOp, secondOp));
+
                             }
                         }
                     }
-                    else
-                        return "E";
-
-
                 }
-
             }
             if (rpnStack.Count == 1)
             {
