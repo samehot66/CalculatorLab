@@ -240,5 +240,14 @@ namespace CPE200Lab1
             lblDisplay.Text = memory.ToString();
         }
 
+        private void btnMS_Click(object sender, EventArgs e)
+        {
+            if (lblDisplay.Text is "error")
+            {
+                return;
+            }
+            memory = Convert.ToDouble(lblDisplay.Text);
+        }
+
     }
 }
