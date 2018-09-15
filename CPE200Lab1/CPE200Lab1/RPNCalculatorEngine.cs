@@ -82,19 +82,39 @@ namespace CPE200Lab1
                         {
                             if(s=="%")
                             {
-                                secondOp = rpnStack.Pop().ToString();
+                                if (rpnStack.Count > 1)
+                                {
+                                    secondOp = rpnStack.Pop().ToString();
                                 firstOp = rpnStack.Pop().ToString();
+                                if (firstOp == null || secondOp == null)
+                                {
+                                    return "E";
+                                }
                                 secondOp = ((Convert.ToDouble(firstOp) *Convert.ToDouble(secondOp)) / 100).ToString();
                                 rpnStack.Push(firstOp);
                                 rpnStack.Push(secondOp);
-
+                                }
+                                else
+                                {
+                                    return "E";
+                                }
                             }
-                            if (isOperator(s)&&s!="%")
+                            if (isOperator(s) && s != "%")
                             {
-                                secondOp = rpnStack.Pop().ToString();
-                                firstOp = rpnStack.Pop().ToString();
-                                rpnStack.Push(calculate(s, firstOp, secondOp));
-
+                                if (rpnStack.Count > 1)
+                                {
+                                    secondOp = rpnStack.Pop().ToString();
+                                    firstOp = rpnStack.Pop().ToString();
+                                    if (firstOp == null || secondOp == null)
+                                    {
+                                        return "E";
+                                    }
+                                    rpnStack.Push(calculate(s, firstOp, secondOp));
+                                }
+                                else
+                                {
+                                    return "E";
+                                }
                             }
                         }
                     }
