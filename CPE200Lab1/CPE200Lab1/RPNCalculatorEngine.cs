@@ -35,7 +35,7 @@ namespace CPE200Lab1
 
                 return unaryCalculate("1/x", strArr[0]);
             }
-            else if (isOperator(strArr[1]) || isOperator(strArr[0]))
+            else if (isOperator(strArr[1]) || isOperator(strArr[0]) || strArr[1]=="%")
 
             {
                 return "E";
