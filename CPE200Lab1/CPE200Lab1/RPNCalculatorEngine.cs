@@ -11,10 +11,20 @@ namespace CPE200Lab1
         public new string Process(string str)
         {
             Stack<string> rpnStack = new Stack<string>();
-            List<string> parts = str.Split(' ').ToList<string>();
+            List<string> parts;
             string result;
             string firstOperand, secondOperand;
 
+            try
+            {
+                if (str == null) ;
+                parts = str.Split(' ').ToList<string>();
+            }
+            catch (Exception)
+            {
+                return "E";
+            }
+     
             foreach (string token in parts)
             {
                 if (isNumber(token))
@@ -29,7 +39,7 @@ namespace CPE200Lab1
                         secondOperand = rpnStack.Pop();
                         firstOperand = rpnStack.Pop();
                         result = calculate(token, firstOperand, secondOperand, 6);
-                        rpnStack.Push(result);
+                        //rpnStack.Push(result);
                     }
                     catch (Exception)
                     {
@@ -39,7 +49,7 @@ namespace CPE200Lab1
                     {
                         return result;
                     }
-                //    rpnStack.Push(result);
+                   rpnStack.Push(result);
                 }else if(token == "")
                 {
                 
@@ -50,13 +60,14 @@ namespace CPE200Lab1
                 }
             }
             //FIXME, what if there is more than one, or zero, items in the stack?
-            if (rpnStack.Count >1) 
-              {  return "E";
+            if (rpnStack.Count ==1) 
+              {
+                result = rpnStack.Pop();
+             return result;
             }
             else
             {
-                result = rpnStack.Pop();
-             return result;
+                return "E";
                 
             }
         }
