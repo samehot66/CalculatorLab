@@ -24,9 +24,15 @@ namespace CPE200Lab1
             {
                 return "E";
             }
-     
+
+            if (parts.Count == 1&& parts[0]!="0")
+            {
+                return "E";
+            }
+
             foreach (string token in parts)
             {
+              
                 if (isNumber(token))
                 {
                     rpnStack.Push(token);
@@ -60,7 +66,7 @@ namespace CPE200Lab1
                 }
             }
             //FIXME, what if there is more than one, or zero, items in the stack?
-            if (rpnStack.Count ==1) 
+            if (rpnStack.Count == 1) 
               {
                 result = rpnStack.Pop();
              return result;
