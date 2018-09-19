@@ -130,7 +130,7 @@ namespace CPE200Lab1
 
                         return decimal.Parse(result.ToString("N" + remainLength)).ToString("G29");
                         
-                        //return decimal.Parse(result.ToString("N" + remainLength)).ToString("G29");
+                     
                     }
                     break;
                 case "%":

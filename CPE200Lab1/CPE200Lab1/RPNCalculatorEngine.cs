@@ -24,19 +24,41 @@ namespace CPE200Lab1
                 else if (isOperator(token))
                 {
                     //FIXME, what if there is only one left in stack?
-                    secondOperand = rpnStack.Pop();
-                    firstOperand = rpnStack.Pop();
-                    result = calculate(token, firstOperand, secondOperand, 6);
+                    try
+                    {
+                        secondOperand = rpnStack.Pop();
+                        firstOperand = rpnStack.Pop();
+                        result = calculate(token, firstOperand, secondOperand, 6);
+                        rpnStack.Push(result);
+                    }
+                    catch (Exception)
+                    {
+                        result = "E";
+                    }
                     if (result is "E")
                     {
                         return result;
                     }
-                    rpnStack.Push(result);
+                //    rpnStack.Push(result);
+                }else if(token == "")
+                {
+                
+                }
+                else
+                {
+                    return "E";
                 }
             }
             //FIXME, what if there is more than one, or zero, items in the stack?
-            result = rpnStack.Pop();
-            return result;
+            if (rpnStack.Count >1) 
+              {  return "E";
+            }
+            else
+            {
+                result = rpnStack.Pop();
+             return result;
+                
+            }
         }
     }
 }
