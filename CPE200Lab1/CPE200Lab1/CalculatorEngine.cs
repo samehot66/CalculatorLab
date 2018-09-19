@@ -72,7 +72,6 @@ namespace CPE200Lab1
                         return calculate(3, "÷", firstOperand, secondOperand, maxOutputSize = 8);
                     else
                           return "0"; 
-                    break;
                    
             }
             return "E";
