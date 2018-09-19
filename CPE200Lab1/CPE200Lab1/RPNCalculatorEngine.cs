@@ -57,7 +57,7 @@ namespace CPE200Lab1
                 for (int x = i; i < strArr.Length; i++)
                 {
                     if (isOperator(strArr[i]))
-                    {
+                    { 
                         checkOp++;
                     }
                     else
