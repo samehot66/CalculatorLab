@@ -20,6 +20,7 @@ namespace CPE200Lab1
         public ExtendForm()
         {
             InitializeComponent();
+            
             engine = new RPNCalculatorEngine();
         }
 

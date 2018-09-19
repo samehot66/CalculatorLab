@@ -26,7 +26,7 @@ namespace CPE200Lab1
                     //FIXME, what if there is only one left in stack?
                     secondOperand = rpnStack.Pop();
                     firstOperand = rpnStack.Pop();
-                    result = calculate(token, firstOperand, secondOperand, 4);
+                    result = calculate(token, firstOperand, secondOperand, 6);
                     if (result is "E")
                     {
                         return result;
