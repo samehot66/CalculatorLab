@@ -25,6 +25,7 @@ namespace CPE200Lab1
                 return "E";
             }
 
+            
             if (parts.Count == 1&& parts[0]!="0")
             {
                 return "E";
@@ -45,7 +46,6 @@ namespace CPE200Lab1
                         secondOperand = rpnStack.Pop();
                         firstOperand = rpnStack.Pop();
                         result = calculate(token, firstOperand, secondOperand, 6);
-                        //rpnStack.Push(result);
                     }
                     catch (Exception)
                     {

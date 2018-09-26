@@ -37,11 +37,11 @@ namespace CPE200Lab1.Tests
         public void BasicCalcuationOneTest()
         {
             Assert.AreEqual("0", engine.Process("0"));
-/*
+
             Assert.AreEqual("2", engine.Process("1 1 + "));
             Assert.AreEqual("0", engine.Process("1 1 - "));
             Assert.AreEqual("1", engine.Process("1 1 X "));
-            Assert.AreEqual("1", engine.Process("1 1 ÷ "));*/
+            Assert.AreEqual("1", engine.Process("1 1 ÷ "));
         }
 
         [TestMethod()]
