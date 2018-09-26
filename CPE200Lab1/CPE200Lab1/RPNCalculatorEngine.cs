@@ -8,9 +8,10 @@ namespace CPE200Lab1
 {
     public class RPNCalculatorEngine : CalculatorEngine
     {
-        public new string Process(string str)
+       protected Stack<string> rpnStack = new Stack<string>();
+        public new string calculate(string str)
         {
-            Stack<string> rpnStack = new Stack<string>();
+            //Stack<string> rpnStack = new Stack<string>();
             List<string> parts;
             string result;
             string firstOperand, secondOperand;
